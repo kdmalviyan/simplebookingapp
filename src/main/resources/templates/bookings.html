@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>See Transactions</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container">
+    <div class="row container d-flex justify-content-center">
+        <div class="col-md-8">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">
+                        <span th:text="${user?.name}" />'s Bookings:</h3>
+                    <button th:onclick="|window.location.href='@{/home}'|" style="float: right;  padding: 1px 6px;"
+                            type="button" class="btn btn-primary">Home</button>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <th style="width: 25%">ID</th>
+                            <th style="width: 25%">Date</th>
+                        </tr>
+                        <tr th:each="booking: ${bookings}">
+                            <td>
+                                <span th:if="${booking.user.id == user.id}" th:text="${booking.id}" />
+                            </td>
+                            <td th:text="${booking.bookingDate}" />
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

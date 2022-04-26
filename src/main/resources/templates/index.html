@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf - Bootstrap WebJars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+</head>
+<body>
+
+<div class="container">
+    <div class="row container d-flex justify-content-center">
+        <div class="col-md-8">
+            <div class="box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Users Lists</h3>
+                    <button th:onclick="|window.location.href='@{/booking}'|" style="float: right;  padding: 1px 6px;"
+                            type="button" class="btn btn-primary">Make a booking</button>
+                </div>
+                <div class="box-body">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th style="width: 40%">Customer Name</th>
+                                <th style="width: 40%">Customer Email</th>
+                            </tr>
+                            <tr style="cursor: pointer;" th:each="user: ${users}"
+                                th:onclick="'javascript:showBookings(\'' + ${user.id} + '\');'">
+                                 <td th:text="${user.name}" />
+                                 <td th:text="${user.email}" />
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showBookings(userId) {
+        location.href = "/user/booking/" + userId;
+    }
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
