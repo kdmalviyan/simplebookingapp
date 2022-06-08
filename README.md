@@ -5,10 +5,10 @@ It is a simple spring boot application can build and run with gradle.
   
 1. Run following commands to start application
     gradle build
-    java -jar <project_home>/build/libs/simplepaymentapp-0.0.1-SNAPSHOT.jar --server.port=<server port> (Default port is 8080)
+    java -jar <project_home>/build/libs/simplebookingapp-0.0.1-SNAPSHOT.jar --server.port=<server port> (Default port is 8080)
     Access application on http://localhost:8080 or specified port
 2. Import the code into any IDE of your choice
-   Find class SimplePaymentApplication.java in package com.secretescapes.simplepaymentapp
+   Find class SimpleBookingApplication.java in package com.kd.simplebookingapp
    Run as java application
    Access application on http://localhost:8080 (If you want to change the port update server.port property in /src/main/resources/application.properties)
 
